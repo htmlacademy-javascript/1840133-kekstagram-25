@@ -25,39 +25,44 @@ const MESSAGES = [
   'Лица у людей на фотке перекошены, как будто их избивают. Как можно было поймать такой неудачный момент?!',
 ];
 
-const createComment = () => {
-  const randomMessageIndex = getRandomInteger(0, MESSAGES.length - 1);
-  const randomNameIndex = getRandomInteger(0, NAMES.length - 1);
+const MIN_AVATAR_INDEX = 1;
+const MAX_AVATAR_INDEX = 6;
+const MIN_RANGE_LIKES = 15;
+const MAX_RANGE_LIKES = 200;
+const MIN_RANGE_COMMENTS = 1;
+const MAX_RANGE_COMMENTS = 3;
+const GENERATE_OBJECTS = 25;
+
+const getRandomElement = (elements) => elements[getRandomInteger(0, elements.length - 1)];
+
+const createComment = (id) => {
   const randomAvatarIndex = getRandomInteger(1, 6);
   const imgAvatar = `img/avatar-${randomAvatarIndex}.svg`;
-  const randomId = getRandomInteger(1, 500);
   return {
-    id: randomId,
+    id: id,
     avatar: imgAvatar,
-    message: MESSAGES[randomMessageIndex],
-    name: NAMES[randomNameIndex],
+    message: getRandomElement(MESSAGES),
+    name: getRandomElement(NAMES),
   };
 };
 
-let createPhotoDescription = () => {
+const createPhotoDescription = (id) => {
   const randomLikesNumber = getRandomInteger(15, 200);
   const randomCommentsNumber = getRandomInteger(1, 3);
-  const commentsList = Array.from({length: randomCommentsNumber}, createComment);
+  const commentsList = Array.from({length: randomCommentsNumber}, (_, index) => createComment(index));
   return {
-    id: 0,
-    url: '',
+    id: id,
+    url: `photos/${id}.jpg`,
     description: 'Крутое фото!',
     likes: randomLikesNumber,
     comments: commentsList,
   };
 };
 
-const takeNumber = () => {
-  for (let i = 1; i <= 25; i++) {
-    let createPhotoDescription[takeNumber]
+const generatePhotos = (count) => {
+  const photos = [];
+  for (let i = 1; i <= count; i++) {
+    photos.push(createPhotoDescription(i));
   }
+  return photos;
 };
-
-console.log (createPhotoDescription[i])
-
-
