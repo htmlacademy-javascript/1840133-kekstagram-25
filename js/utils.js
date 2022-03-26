@@ -6,5 +6,8 @@ getRandomInteger(0, 20);
 
 const getRandomElement = (elements) => elements[getRandomInteger(0, elements.length - 1)];
 
+const checkStringLength = (testLine, maxLength) => testLine.length <= maxLength;
+checkStringLength('Вау, классная фотка! Это где?', 100);
+
 export {getRandomInteger};
 export {getRandomElement};

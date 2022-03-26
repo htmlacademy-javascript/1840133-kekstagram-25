@@ -1,8 +1,4 @@
-import {getRandomInteger} from './utils.js';
-import {getRandomElement} from './utils.js';
-
-const checkStringLength = (testLine, maxLength) => testLine.length <= maxLength;
-checkStringLength('Вау, классная фотка! Это где?', 100);
+import {getRandomInteger, getRandomElement} from './utils.js';
 
 const NAMES = [
   'Петр',
@@ -26,7 +22,7 @@ const MIN_RANGE_LIKES = 15;
 const MAX_RANGE_LIKES = 200;
 const MIN_RANGE_COMMENTS = 1;
 const MAX_RANGE_COMMENTS = 3;
-const GENERATE_OBJECTS = 25;
+const PHOTOS_DESCRIPTIONS = 25;
 
 const createComment = (id) => {
   const randomAvatarIndex = getRandomInteger(MIN_AVATAR_INDEX, MAX_AVATAR_INDEX);
@@ -60,5 +56,4 @@ const generatePhotos = (count) => {
   return photos;
 };
 
-export {GENERATE_OBJECTS};
-export {generatePhotos};
+export {PHOTOS_DESCRIPTIONS, generatePhotos};
