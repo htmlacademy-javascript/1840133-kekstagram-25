@@ -57,3 +57,4 @@ const generatePhotos = (count) => {
 };
 
 export {PHOTOS_DESCRIPTIONS, generatePhotos};
+
