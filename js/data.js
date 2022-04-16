@@ -56,5 +56,4 @@ const generatePhotos = (count) => {
   return photos;
 };
 
-export {PHOTOS_DESCRIPTIONS, generatePhotos};
-
+export {PHOTOS_DESCRIPTIONS, generatePhotos, createPhotoDescription};
